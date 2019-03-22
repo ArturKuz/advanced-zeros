@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var base =  232;
+    var number = 46899647 ;
+       
+  var j = 2;
+  var d = 0;
+  var counter = 1;
+  var record = 0;
+  var a;
+  var arr = [];
+
+while(j<=base) {
+    while(base%j==0) {
+      base = base/j;
+      arr[d] = j;
+      d++;
+      if(base==1) {
+        break;
+      }
+    }
+    j++;
+  }
+
+  for(var i = 0; i < arr.length; i++) {
+      while (arr[i]==arr[i+1]) {
+        counter++;
+        record = arr[i];
+        arr.splice(i+1, 1);        
+      }
+   
+    // if(arr[i] == record) {
+    //   document.write(arr[i]+"<sup>"+ counter +"</sup> ");
+    // }else {
+    //   document.write(arr[i]+" ");
+    // }
+    
+    // if(i != arr.length-1) {
+    //   document.write(" * ");
+    // }
+    // counter = 1;
+  }
+//   for (let h = 0; base/h >= 1; h *= base)
+//     counter += Math.floor(base/h);
+//   return counter;
+
+let arrRes = [];
+let counterS = 1;
+  for(var i = 0; i < arr.length; i++) {
+      while ( number/arr[i] >= 1) {
+       
+        // res = number/arr[i]   
+        counterS += Math.floor(number/arr[i]);        
+      }      
+    arrRes.push(counterS);
+  }
+    </script>
+    
+</body>
+</html>
