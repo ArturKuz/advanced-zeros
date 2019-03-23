@@ -1,12 +1,9 @@
 module.exports = function getZerosCount(number, base) {
  
-  var j = 2;
-  var d = 0;
-  var counter = 1;
-  var record = 0;
-  var a;
-  var arr = [];
-
+  const arr = [];
+  let j = 2;
+  let d = 0;
+  // simple numbers in base
 while(j<=base) {
     while(base%j==0) {
       base = base/j;
@@ -18,29 +15,37 @@ while(j<=base) {
     }
     j++;
   }
-
+  //  splice arr
+  let counter = 1;
   for(var i = 0; i < arr.length; i++) {
       while (arr[i]==arr[i+1]) {
-        counter++;
-        record = arr[i];
+        counter++;        
         arr.splice(i+1, 1);
       }
    
   }
-//   for (let h = 0; base/h >= 1; h *= base)
-//     counter += Math.floor(base/h);
-//   return counter;
 
-let arrRes = [];
-let res
-  for(var i = 0; i < arr.length; i++) {
+  // power of simple numb in base
+  let arrRes = [];
+
+  for(let i = 0; i < arr.length; i++) {
+    let step = arr[i];
+    let count=0;
+    let res = 1;
+      
       while ( res >= 1) {
-       
-        res = number/arr[i]   
-        counter += Math.floor(number/arr[i]);        
+        
+      res = number/step;
+      count += Math.floor(number/step);
+      step *= arr[i];        
       }      
-    arrRes.push(counter);
+    
+    arrRes.push(count);
+    
   }
-  return Math.min(arrRes);
+  // min power
+  const min = Math.min(...arrRes)
+  console.log(min)
+  return min;
   
 }

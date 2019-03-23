@@ -8,8 +8,8 @@
 </head>
 <body>
     <script>
-    var base =  232;
-    var number = 46899647 ;
+    var base =  45;
+    var number = 100 ;
        
   var j = 2;
   var d = 0;
@@ -53,15 +53,24 @@ while(j<=base) {
 //   return counter;
 
 let arrRes = [];
-let counterS = 1;
+let res = 1;
+
   for(var i = 0; i < arr.length; i++) {
-      while ( number/arr[i] >= 1) {
+     let step = arr[i];
+     let count=0;
+      while ( res >= 1) {
        
-        // res = number/arr[i]   
-        counterS += Math.floor(number/arr[i]);        
+        res = number/step;
+       count += Math.floor(number/step);
+        step *= arr[i];        
       }      
-    arrRes.push(counterS);
+    arrRes.push(count);
+    res = 1;
   }
+
+const min = Math.min(...arrRes)
+console.log(min)
+  
     </script>
     
 </body>
